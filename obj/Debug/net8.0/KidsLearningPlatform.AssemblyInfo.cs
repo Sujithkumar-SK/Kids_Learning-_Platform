@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("KidsLearningPlatform")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+22f2a0e1bb8ad4360b17a969eaa7b0abe6b36828")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b092baee7c44a6d44eeaa56dcf2259c440c68e57")]
 [assembly: System.Reflection.AssemblyProductAttribute("KidsLearningPlatform")]
 [assembly: System.Reflection.AssemblyTitleAttribute("KidsLearningPlatform")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

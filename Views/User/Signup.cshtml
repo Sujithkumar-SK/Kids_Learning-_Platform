@@ -1,0 +1,44 @@
+@model KidsLearningPlatform.Models.User
+@{
+    ViewBag.Title = "Sign Up";
+}
+
+<h2>Sign Up</h2>
+
+<form method="post">
+    <label>Name:</label>
+    <input asp-for="Name" />
+    <span style="color:red" asp-validation-for="Name"></span><br /><br />
+
+    <label>Age:</label>
+    <input asp-for="Age" type="number" />
+    <span style="color:red" asp-validation-for="Age"></span><br /><br />
+
+    <label>Email:</label>
+    <input asp-for="Email" />
+    <span style="color:red" asp-validation-for="Email"></span><br /><br />
+
+    <label>Username:</label>
+    <input asp-for="Username" />
+    <span style="color:red" asp-validation-for="Username"></span><br /><br />
+
+    <label>Password:</label>
+    <input asp-for="Password" type="password" />
+    <span style="color:red" asp-validation-for="Password"></span><br /><br />
+
+    <label>User Type:</label>
+    <select asp-for="UserType">
+        <option value="">-- Select --</option>
+        <option value="Admin">Admin</option>
+        <option value="Student">Student</option>
+    </select>
+    <span style="color:red" asp-validation-for="UserType"></span><br /><br />
+
+    <button type="submit">Sign Up</button>
+</form>
+
+<p style="color:green">@ViewBag.Message</p>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

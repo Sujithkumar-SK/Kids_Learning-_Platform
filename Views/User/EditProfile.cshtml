@@ -1,0 +1,76 @@
+@model KidsLearningPlatform.Models.User
+
+@{
+    ViewData["Title"] = "Edit Profile";
+}
+
+<h2>Edit Profile</h2>
+
+<form asp-action="EditProfile" asp-controller="User" method="post" enctype="multipart/form-data">
+    <div class="mb-3 text-center">
+        @* Show current profile image *@
+        @if (Model.Id != 0)
+        {
+            <img src="@Url.Action("GetProfileImage", "User", new { id = Model.Id })" 
+                alt="Profile Picture" 
+                class="img-thumbnail" 
+                style="width: 150px; height: 150px;" />
+        }
+        else
+        {
+            <img src="~/images/default_profile.png" 
+                alt="Default Profile Picture" 
+                class="img-thumbnail" 
+                style="width: 150px; height: 150px;" />
+        }
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Name" class="form-label"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Age" class="form-label"></label>
+        <input asp-for="Age" type="number" class="form-control" />
+        <span asp-validation-for="Age" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Email" class="form-label"></label>
+        <input asp-for="Email" type="email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="UserType" class="form-label"></label>
+        <input asp-for="UserType" class="form-control" />
+        <span asp-validation-for="UserType" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Upload Profile Picture</label>
+        <input type="file" name="ProfilePhoto" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-success">Save Changes</button>
+
+    @if (ViewBag.Message != null)
+    {
+        <div class="mt-3 alert alert-danger">
+            @ViewBag.Message
+        </div>
+    }
+
+    @if (TempData["Message"] != null)
+    {
+        <div class="mt-3 alert alert-success">
+            @TempData["Message"]
+        </div>
+    }
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

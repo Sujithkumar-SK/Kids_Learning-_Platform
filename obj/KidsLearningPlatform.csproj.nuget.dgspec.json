@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\SUJITH KUMAR\\OneDrive\\Documents\\Kanini\\day34_webapp_deploy\\KidsLearningPlatform\\KidsLearningPlatform.csproj": {}
+    "C:\\Users\\SUJITH KUMAR\\OneDrive\\Documents\\Kanini\\day34_webapp\\KidsLearningPlatform\\KidsLearningPlatform.csproj": {}
   },
   "projects": {
-    "C:\\Users\\SUJITH KUMAR\\OneDrive\\Documents\\Kanini\\day34_webapp_deploy\\KidsLearningPlatform\\KidsLearningPlatform.csproj": {
+    "C:\\Users\\SUJITH KUMAR\\OneDrive\\Documents\\Kanini\\day34_webapp\\KidsLearningPlatform\\KidsLearningPlatform.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\SUJITH KUMAR\\OneDrive\\Documents\\Kanini\\day34_webapp_deploy\\KidsLearningPlatform\\KidsLearningPlatform.csproj",
+        "projectUniqueName": "C:\\Users\\SUJITH KUMAR\\OneDrive\\Documents\\Kanini\\day34_webapp\\KidsLearningPlatform\\KidsLearningPlatform.csproj",
         "projectName": "KidsLearningPlatform",
-        "projectPath": "C:\\Users\\SUJITH KUMAR\\OneDrive\\Documents\\Kanini\\day34_webapp_deploy\\KidsLearningPlatform\\KidsLearningPlatform.csproj",
+        "projectPath": "C:\\Users\\SUJITH KUMAR\\OneDrive\\Documents\\Kanini\\day34_webapp\\KidsLearningPlatform\\KidsLearningPlatform.csproj",
         "packagesPath": "C:\\Users\\SUJITH KUMAR\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\SUJITH KUMAR\\OneDrive\\Documents\\Kanini\\day34_webapp_deploy\\KidsLearningPlatform\\obj\\",
+        "outputPath": "C:\\Users\\SUJITH KUMAR\\OneDrive\\Documents\\Kanini\\day34_webapp\\KidsLearningPlatform\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -22,15 +22,15 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net8.0"
+          "net9.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net8.0": {
-            "targetAlias": "net8.0",
+          "net9.0": {
+            "targetAlias": "net9.0",
             "projectReferences": {}
           }
         },
@@ -47,8 +47,8 @@
         "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
-        "net8.0": {
-          "targetAlias": "net8.0",
+        "net9.0": {
+          "targetAlias": "net9.0",
           "dependencies": {
             "Microsoft.Data.SqlClient": {
               "target": "Package",

@@ -1,8 +1,16 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewBag.Title = "Welcome to Kids Learning Platform";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container mt-5">
+    <div class="text-center">
+        <h1 class="display-4 fw-bold">Welcome to Kids Learning Platform</h1>
+        <p class="lead text-muted">Fun way to learn Alphabets, Numbers and explore the Dictionary!</p>
+        <div class="mt-4">
+            <a href="/Learning/Alphabet" class="btn btn-primary btn-lg mx-2">Learn Alphabets</a>
+            <a href="/Learning/Number" class="btn btn-success btn-lg mx-2">Learn Numbers</a>
+            <a href="/Learning/Dictionary" class="btn btn-warning btn-lg mx-2">Explore Dictionary</a>
+        </div>
+    </div>
 </div>

@@ -4,9 +4,9 @@
     ViewData["Title"] = "Login";
 }
 
-<h2>Login</h2>
+<h2 class="text-center mb-4">Login</h2>
 
-<form method="post" asp-controller="User" asp-action="Login">
+<form method="post" asp-controller="User" asp-action="Login" class="mx-auto" style="max-width: 400px;">
     <div class="mb-3">
         <label asp-for="Username" class="form-label"></label>
         <input asp-for="Username" class="form-control" />
@@ -19,7 +19,13 @@
         <span asp-validation-for="Password" class="text-danger"></span>
     </div>
 
-    <button type="submit" class="btn btn-primary">Login</button>
+    <!-- ✅ Sign Up Link -->
+    <div class="mb-3 text-center">
+        <span>New User?</span>
+        <a asp-controller="User" asp-action="Signup" class="text-decoration-none">Create an account</a>
+    </div>
+
+    <button type="submit" class="btn btn-primary w-100">Login</button>
 
     @if (ViewBag.Message != null)
     {

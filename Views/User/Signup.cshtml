@@ -1,43 +1,75 @@
 @model KidsLearningPlatform.Models.User
 @{
-    ViewBag.Title = "Sign Up";
+    ViewData["Title"] = "Sign Up";
 }
 
-<h2>Sign Up</h2>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg">
+                <div class="card-body">
+                    <h2 class="card-title text-center mb-4">Sign Up</h2>
 
-<form method="post">
-    <label>Name:</label>
-    <input asp-for="Name" />
-    <span style="color:red" asp-validation-for="Name"></span><br /><br />
+                    <form method="post">
+                        <div class="mb-3">
+                            <label asp-for="Name" class="form-label">Name</label>
+                            <input asp-for="Name" class="form-control" />
+                            <span class="text-danger" asp-validation-for="Name"></span>
+                        </div>
 
-    <label>Age:</label>
-    <input asp-for="Age" type="number" />
-    <span style="color:red" asp-validation-for="Age"></span><br /><br />
+                        <div class="mb-3">
+                            <label asp-for="Age" class="form-label">Age</label>
+                            <input asp-for="Age" type="number" class="form-control" />
+                            <span class="text-danger" asp-validation-for="Age"></span>
+                        </div>
 
-    <label>Email:</label>
-    <input asp-for="Email" />
-    <span style="color:red" asp-validation-for="Email"></span><br /><br />
+                        <div class="mb-3">
+                            <label asp-for="Email" class="form-label">Email</label>
+                            <input asp-for="Email" class="form-control" />
+                            <span class="text-danger" asp-validation-for="Email"></span>
+                        </div>
 
-    <label>Username:</label>
-    <input asp-for="Username" />
-    <span style="color:red" asp-validation-for="Username"></span><br /><br />
+                        <div class="mb-3">
+                            <label asp-for="Username" class="form-label">Username</label>
+                            <input asp-for="Username" class="form-control" />
+                            <span class="text-danger" asp-validation-for="Username"></span>
+                        </div>
 
-    <label>Password:</label>
-    <input asp-for="Password" type="password" />
-    <span style="color:red" asp-validation-for="Password"></span><br /><br />
+                        <div class="mb-3">
+                            <label asp-for="Password" class="form-label">Password</label>
+                            <input asp-for="Password" type="password" class="form-control" />
+                            <span class="text-danger" asp-validation-for="Password"></span>
+                        </div>
 
-    <label>User Type:</label>
-    <select asp-for="UserType">
-        <option value="">-- Select --</option>
-        <option value="Admin">Admin</option>
-        <option value="Student">Student</option>
-    </select>
-    <span style="color:red" asp-validation-for="UserType"></span><br /><br />
+                        <div class="mb-3">
+                            <label asp-for="UserType" class="form-label">User Type</label>
+                            <select asp-for="UserType" class="form-select">
+                                <option value="">-- Select --</option>
+                                <option value="Admin">Admin</option>
+                                <option value="Student">Student</option>
+                            </select>
+                            <span class="text-danger" asp-validation-for="UserType"></span>
+                        </div>
 
-    <button type="submit">Sign Up</button>
-</form>
+                        <button type="submit" class="btn btn-primary w-100">Sign Up</button>
 
-<p style="color:green">@ViewBag.Message</p>
+                        <div class="mt-3 text-center">
+                            Already a user?
+                            <a asp-controller="User" asp-action="Login" class="btn btn-link">Login</a>
+                        </div>
+
+                        @if (ViewBag.Message != null)
+                        {
+                            <div class="mt-3 alert alert-success">
+                                @ViewBag.Message
+                            </div>
+                        }
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

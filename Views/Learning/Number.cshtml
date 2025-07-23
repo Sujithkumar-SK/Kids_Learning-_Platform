@@ -1,0 +1,31 @@
+@{
+    ViewBag.Title = "Learn Numbers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Learn Numbers</h2>
+
+    <!-- Number Cards Grid -->
+    <div id="numberGrid" class="row row-cols-2 row-cols-md-5 g-4 text-center">
+        @for (int i = 1; i <= 10; i++)
+        {
+            <div class="col">
+                <div class="card shadow-sm border-0 p-3" style="cursor:pointer;">
+                    <div class="display-4 text-success fw-bold">@i</div>
+                    <img src="@Url.Content($"~/images/numbers/{i}.jpg")" alt="Number @i" class="img-fluid mx-auto"
+                        style="max-height: 70px;" />
+                    <div class="mt-2 fw-semibold">@NumberToWord(i)</div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@functions {
+    string NumberToWord(int number)
+    {
+        var words = new[] { "", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten" };
+        return number >= 1 && number <= 10 ? words[number] : number.ToString();
+    }
+}

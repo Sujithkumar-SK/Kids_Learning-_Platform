@@ -1,0 +1,62 @@
+@{
+  ViewBag.Title = "Dictionary";
+}
+
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Dictionary Lookup</h2>
+
+  <div class="mb-3">
+    <input type="text" id="dictionaryInput" class="form-control" placeholder="Enter a word">
+  </div>
+
+  <div class="mb-3 text-center">
+    <button id="dictionarySearchBtn" class="btn btn-primary me-2">Search</button>
+    <button id="dictionaryClearBtn" class="btn btn-secondary">Clear</button>
+  </div>
+
+  <div id="dictionaryResult" class="mt-4">
+    <p class="text-muted text-center">Enter a word above and click Search.</p>
+  </div>
+</div>
+
+@section Scripts {
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script>
+    $("#dictionarySearchBtn").click(async function () {
+      const word = $("#dictionaryInput").val().trim();
+      const $result = $("#dictionaryResult");
+
+      if (!word) {
+        $result.html('<p class="text-danger text-center">Please enter a word to search.</p>');
+        return;
+      }
+
+      $result.html('<p class="text-center">Searching...</p>');
+
+      try {
+        const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(word)}`);
+        if (!response.ok) throw new Error("Word not found");
+
+        const data = await response.json();
+
+        let html = `<h5>Definitions for "<strong>${word}</strong>":</h5><ul>`;
+        data[0].meanings.forEach(meaning => {
+          meaning.definitions.forEach(def => {
+            html += `<li><em>${meaning.partOfSpeech}</em>: ${def.definition}</li>`;
+          });
+        });
+        html += '</ul>';
+
+        $result.html(html);
+
+      } catch (error) {
+        $result.html('<p class="text-danger text-center">No results found for "' + word + '".</p>');
+      }
+    });
+
+    $("#dictionaryClearBtn").click(function () {
+      $("#dictionaryInput").val('');
+      $("#dictionaryResult").html('<p class="text-muted text-center">Enter a word above and click Search.</p>');
+    });
+  </script>
+}

@@ -89,7 +89,7 @@ namespace KidsLearningPlatform.Controllers
       }
     }
 
-    public IActionResult Dashboard()
+    public IActionResult Dashboard(string Keyword, string instructor)
     {
       if (HttpContext.Session.GetString("UserId") == null)
       {
@@ -98,10 +98,27 @@ namespace KidsLearningPlatform.Controllers
       ViewBag.Username = HttpContext.Session.GetString("Username");
       ViewBag.UserId = HttpContext.Session.GetString("UserId");
       List<Course> courses = new();
+      HashSet<string> InstructorsSet = new HashSet<string>();
       using SqlConnection conn = new SqlConnection(_config.GetConnectionString("DefaultConnection"));
-      string query = "select * from courses";
+      string query = "select * from courses Where 1=1";
+      if (!string.IsNullOrEmpty(Keyword))
+      {
+        query+="and (Title like @Keyword or Description like @Keyword)";
+      }
+      if(!string.IsNullOrEmpty(instructor))
+      {
+        query += "and Instructor = @Instructor";
+      }
       using SqlCommand cmd = new SqlCommand(query, conn);
       conn.Open();
+      if (!string.IsNullOrEmpty(Keyword))
+      {
+        cmd.Parameters.AddWithValue("@Keyword", "%"+Keyword+"%");
+      }
+      if (!string.IsNullOrEmpty(instructor))
+      {
+        cmd.Parameters.AddWithValue("@Instructor",instructor);
+      }
       using SqlDataReader reader = cmd.ExecuteReader();
       while (reader.Read())
       {
@@ -114,8 +131,14 @@ namespace KidsLearningPlatform.Controllers
           Instructor = reader["Instructor"].ToString(),
           CourseImage = reader["CourseImage"] as byte[]
         });
+        InstructorsSet.Add(reader["Instructor"].ToString()!);
       }
       conn.Close();
+      ViewBag.SearchKeyword = Keyword;
+      ViewBag.selectedInstructor = instructor;
+      List<string> instructorsList = new List<string>(InstructorsSet);
+      instructorsList.Sort();
+      ViewBag.Instructors = instructorsList;
       return View(courses);
     }
 
